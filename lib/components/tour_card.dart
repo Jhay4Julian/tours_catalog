@@ -8,6 +8,7 @@ class TourCard extends StatelessWidget {
   final String tourTitle;
   final String details;
   final String price;
+  final VoidCallback removeCard;
 
   const TourCard({
     super.key,
@@ -15,6 +16,7 @@ class TourCard extends StatelessWidget {
     required this.tourTitle,
     required this.details,
     required this.price,
+    required this.removeCard,
   });
 
   @override
@@ -22,11 +24,16 @@ class TourCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(20),
       decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(5),
-        ),
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(5),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black54,
+              blurRadius: 5,
+            )
+          ]),
       child: Column(
         children: [
           Stack(
@@ -60,9 +67,9 @@ class TourCard extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    price,
+                    '\$$price',
                     style: const TextStyle(
-                      fontSize: 15,
+                      fontSize: 17,
                       color: Colors.white,
                       letterSpacing: 2,
                     ),
@@ -71,18 +78,25 @@ class TourCard extends StatelessWidget {
               ),
             ],
           ),
+          // tour title
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
             child: Text(
               tourTitle,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 20),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1,
+              ),
             ),
           ),
+          // tour details
           ReadMoreText(text: details),
+          // not interested button
           CustomButton(
             buttonTitle: 'Not Interested',
-            onTap: () {},
+            onTap: removeCard,
           ),
         ],
       ),
