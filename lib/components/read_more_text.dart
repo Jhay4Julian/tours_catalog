@@ -38,7 +38,7 @@ class _ReadMoreTextState extends State<ReadMoreText> {
                 Text(
                   // ignore: prefer_interpolation_to_compose_strings
                   isShort ? (firstHalf + " . . .") : (firstHalf + secondHalf),
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16, color: Colors.black54),
                 ),
                 InkWell(
                   child: Row(
