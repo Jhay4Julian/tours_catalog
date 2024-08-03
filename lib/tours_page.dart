@@ -73,7 +73,7 @@ class _ToursPageState extends State<ToursPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: tours.isEmpty
             ? Center(
